@@ -1,0 +1,122 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm}
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\geometry{margin=2cm}
+
+% \setlength\parindent{0pt}
+% \setlength{\parskip}{\baselineskip}
+
+\title{MLCS - Homework 1}
+\author{Michele Conti \\ \texttt{1599133}}
+\date{}
+
+
+\theoremstyle{definition}
+% \newtheorem*{exercise}{Exercise}
+\newtheorem{exerciseinner}{Exercise}
+\newenvironment{exercise}[1]{%
+  \renewcommand\theexerciseinner{#1}%
+  \exerciseinner
+}{\endexerciseinner}
+
+\renewcommand*{\proofname}{Solution}
+
+\begin{document}
+\maketitle
+
+\section{Group 1}
+
+\begin{exercise}{2}
+Show that the following sentence is unsatisfiable, where $S$ is any formula with two free variables: $\exists x \forall y (S(x, y) \leftrightarrow \neg S(y, y))$.
+\end{exercise}
+\begin{proof}
+Given any choice of $x$, it is sufficient to pick $y = x$, in which case we would get 
+\[
+    S(x, x) \leftrightarrow \neg S(x, x).
+\]
+Since this is obviously a contradiction, it means that it exists $y$ such that the formula $S$ is false, meaning that it is unsatisfiable.
+\end{proof}
+
+\begin{exercise}{4}
+Is the following formula logically valid for any formula $F$ and any term $t$?
+\[
+    \forall x F(x) \to F(t).
+\]
+If not, give an example of a formula $F$, a structure $\mathfrak{A}$ and an assignment $\alpha$ witnessing this fact.
+\end{exercise}
+
+\begin{proof}
+If we analyze the premise of the implication, we notice that we only have two cases:
+\begin{enumerate}
+    \item $F(x)$ is true for every $x$ (i.e., the premise is true).
+    \item It exists $x$ such that $F(x)$ is false (i.e., the premise is false). 
+\end{enumerate}
+In case 1, we have that for every choice of $x$ the formula $F$ is true, meaning that it is also true for the given term $t$. Therefore, the implication is true, because we are considering an implication between a two true statements.
+
+In case 2, the premise of the implication is false, therefore we can conclude that the whole implication is true.
+\end{proof}
+
+\begin{exercise}{9}
+In the language $\mathcal{L} = \{<\}$ of \textbf{DLO}, write a sentence that distinguishes $(\textbf{N}, <)$ from $(\textbf{Q}, <)$ i.e., that is true in one structure but not in the other.
+\end{exercise}
+\begin{proof}
+The following sentence is true in $(\textbf{N}, <)$, but not in $(\textbf{Q}, <)$:
+\[
+    \forall x \exists y (\neg(x = y) \to y < x).
+\]
+
+This represents the fact that $\mathbb{Q}$ has no left endpoint, while $\mathbb{N}$ has $0$ (or $1$, depending on whether we consider the set to have or not the element $0$), which is lower than any other element.
+\end{proof}
+
+\section{Group 2}
+
+\begin{exercise}{3}
+Is the structure $\mathcal{Q} = (\mathbb{Q}, +, \times, 0, 1)$ a substructure $\mathcal{R} = (\mathbb{R}, +, \times, 0, 1)$? Is it an elementary substructure?
+\end{exercise}
+\begin{proof}
+My assumption is that $\mathcal{Q}$ is a substructure of $\mathcal{R}$, but that it is not an elementary substructure. Let's prove both points.
+
+To prove that $\mathfrak{B}$ is a substructure of $\mathfrak{A}$, we need to check if
+\begin{enumerate}
+    \item $B \subseteq A$.
+    \item For every constant symbol $c$, $c^{\mathfrak{A}} = c^{\mathfrak{B}}$.
+    \item Every relation $R^{\mathfrak{B}}$ (resp. function $f^{\mathfrak{B}}$) is the restriction of $R^{\mathfrak{A}}$ (resp. $f^{\mathfrak{A}}$) to B.
+\end{enumerate}
+For the first point, there is nothing to prove. The second point is trivially true, since we only have two constants in both structures (i.e., $0$ and $1$) and they correspond. The third point (?)
+
+To prove that the substructure $\mathfrak{B}$ is not elementary, we can consider the formula
+\[
+    \forall x \exists y ((x > 0) \to (y \times y = x)).
+\]
+This is clearly true for $\mathcal{R}$, but it is not for $\mathcal{Q}$. In fact, we can consider $x = 2$ and it doesn't exist any $y$ such that $y \times y = 2$.
+\end{proof}
+
+\begin{exercise}{4}
+Prove that the following structures are not isomorphic:
+\begin{enumerate}[\quad{(}1{)}]
+\item ($\mathbb{N}$ +, $\times$, $0$, $1$, $<$) and ($\mathbb{Q}$, $+$, $\times$, $0$, $1$, $<$).
+\item ($\mathbb{N}$, $<$) and ($\mathbb{Z}$, $<$).
+\item ($\mathbb{Q}$, $<$) and ($\mathbb{R}$, $<$).
+\end{enumerate}
+(Hint: in some cases you can use the fact that if $\mathfrak{A}$ and $\mathfrak{B}$ are isomorphic then they satisfy the same sentences).
+\end{exercise}
+\begin{proof}
+Let's consider case by case.
+
+To prove that ($\mathbb{N}$ +, $\times$, $0$, $1$, $<$) and ($\mathbb{Q}$, $+$, $\times$, $0$, $1$, $<$) are not isomorphic, we can consider the sentence that expresses the existence of additive inverse:
+\[
+    \forall x \exists y (x + y = 0)
+\]
+is satisfied in ($\mathbb{Q}$, $+$, $\times$, $0$, $1$, $<$), but not in ($\mathbb{N}$ +, $\times$, $0$, $1$, $<$). We know that two structures are isomorphic if and only if they satisfy the same sentences, therefore we can conclude that these two are not.
+
+To prove that ($\mathbb{N}$, $<$) and ($\mathbb{Z}$, $<$) are not isomorphic, we can proceed in a similar way, using the sentence expressing the existence of the left-end point:
+\[
+    \dots
+\]
+\end{proof}
+
+
+\end{document}
