@@ -1,12 +1,12 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
-\usepackage{amsthm}
+\usepackage{amsthm,xpatch}
 \usepackage{geometry}
 \usepackage{amssymb}
 \usepackage{enumerate}
 \geometry{margin=2cm}
 
-% \setlength\parindent{0pt}
+%\setlength\parindent{0pt}
 % \setlength{\parskip}{\baselineskip}
 
 \title{MLCS - Homework 1}
@@ -23,6 +23,21 @@
 }{\endexerciseinner}
 
 \renewcommand*{\proofname}{Solution}
+
+\makeatletter
+\newcounter{proofpart}
+\xpretocmd{\proof}{\setcounter{proofpart}{0}}{}{}
+\newcommand{\proofpart}[1]{%
+	\par
+	\addvspace{\medskipamount}%
+	\stepcounter{proofpart}%
+	\noindent\emph{Part \theproofpart: #1}\par\nobreak\smallskip
+	\@afterheading
+}
+\makeatother
+
+
+
 
 \begin{document}
 \maketitle
@@ -79,14 +94,20 @@ Is the structure $\mathcal{Q} = (\mathbb{Q}, +, \times, 0, 1)$ a substructure $\
 \begin{proof}
 My assumption is that $\mathcal{Q}$ is a substructure of $\mathcal{R}$, but that it is not an elementary substructure. Let's prove both points.
 
-To prove that $\mathfrak{B}$ is a substructure of $\mathfrak{A}$, we need to check if
+\proofpart{$\mathfrak{B}$ is a substructure of $\mathfrak{A}$.}
+Recalling the definition of substructure, we need to prove that:
 \begin{enumerate}
     \item $B \subseteq A$.
     \item For every constant symbol $c$, $c^{\mathfrak{A}} = c^{\mathfrak{B}}$.
     \item Every relation $R^{\mathfrak{B}}$ (resp. function $f^{\mathfrak{B}}$) is the restriction of $R^{\mathfrak{A}}$ (resp. $f^{\mathfrak{A}}$) to B.
 \end{enumerate}
-For the first point, there is nothing to prove. The second point is trivially true, since we only have two constants in both structures (i.e., $0$ and $1$) and they correspond. The third point (?)
+For the first point, there is nothing to prove.
 
+The second point is trivially true, since we only have two constants in both structures (i.e., $0$ and $1$) and they correspond.
+
+For the last point, since both structures only have the sum and multiplication operations in the language, we need to check if the sum and multiplication operations of the first structure $\mathcal{Q}$ (to which we'll refer to respectively with $+^{\mathcal{Q}}$ and $\times^{\mathcal{Q}}$) are the restrictions of the sum and multiplication operations of the second structure $\mathcal{R}$ (to which we'll refer to respectively with $+^{\mathcal{R}}$ and $\times^{\mathcal{R}}$).
+
+\proofpart{Substructure $\mathfrak{B}$ of $\mathfrak{A}$ is not elementary.}
 To prove that the substructure $\mathfrak{B}$ is not elementary, we can consider the formula
 \[
     \forall x \exists y ((x > 0) \to (y \times y = x)).
