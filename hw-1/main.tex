@@ -125,19 +125,22 @@ Prove that the following structures are not isomorphic:
 (Hint: in some cases you can use the fact that if $\mathfrak{A}$ and $\mathfrak{B}$ are isomorphic then they satisfy the same sentences).
 \end{exercise}
 \begin{proof}
-Let's consider case by case.
-
+Let's consider each point separately.
+\proofpart{}
 To prove that ($\mathbb{N}$ +, $\times$, $0$, $1$, $<$) and ($\mathbb{Q}$, $+$, $\times$, $0$, $1$, $<$) are not isomorphic, we can consider the sentence that expresses the existence of additive inverse:
 \[
-    \forall x \exists y (x + y = 0)
+    \forall x \exists y (x + y = 0).
 \]
-is satisfied in ($\mathbb{Q}$, $+$, $\times$, $0$, $1$, $<$), but not in ($\mathbb{N}$ +, $\times$, $0$, $1$, $<$). We know that two structures are isomorphic if and only if they satisfy the same sentences, therefore we can conclude that these two are not.
+This formula is satisfied in ($\mathbb{Q}$, $+$, $\times$, $0$, $1$, $<$), but not in ($\mathbb{N}$ +, $\times$, $0$, $1$, $<$). As for the hint, we know that two structures are isomorphic if and only if they satisfy the same sentences, therefore we can conclude that these two are not.
 
+\proofpart{}
 To prove that ($\mathbb{N}$, $<$) and ($\mathbb{Z}$, $<$) are not isomorphic, we can proceed in a similar way, using the sentence expressing the existence of the left-end point:
 \[
-    \dots
+	\exists x \forall y (\neg (x = y) \to (x < y)).
 \]
+This sentence is true in ($\mathbb{N}$, $<$) (i.e., $0$ is the left-end point), but it is false in ($\mathbb{Q}$, $<$).
+
+\proofpart{}
+Finally, to prove that ($\mathbb{Q}$, $<$) and ($\mathbb{R}$, $<$), we can trivially conclude that those structures are not isomorphic for cardinality reasons.
 \end{proof}
-
-
 \end{document}
