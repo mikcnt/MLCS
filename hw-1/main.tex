@@ -101,7 +101,73 @@ Let $\mathfrak{A}_1 = (\textbf{N}, +, 0)$ and $\mathfrak{A}_2 = (2\textbf{N}, +,
 \end{enumerate}
 \end{exercise}
 \begin{proof}
-	\dots
+Let's consider each point separately.
+\proofpart{\textbf{True}.}
+Recalling the definition of substructure, we need to prove that:
+\begin{enumerate}
+	\item $B \subseteq A$.
+	\item For every constant symbol $c$, $c^{\mathfrak{A}} = c^{\mathfrak{B}}$.
+	\item Every relation $R^{\mathfrak{B}}$ (resp. function $f^{\mathfrak{B}}$) is the restriction of $R^{\mathfrak{A}}$ (resp. $f^{\mathfrak{A}}$) to B.
+\end{enumerate}
+
+The first point, $2 \textbf{N} \subseteq \textbf{N}$, is trivially true. As for the second point, the only constant both structures have is $0$, and therefore this is also true. Finally, to prove that every relation (resp. function) in $\mathfrak{A}_2$ is the restriction of the corresponding relation (reps. function) in $\mathfrak{A}_1$, we observe that we only have the operator $+$ in both structures. Now, if we sum two even numbers we still get an even number, and the sum of natural numbers is still a natural number. Therefore, we can conclude that relations or functions in $\mathfrak{A}_2$ are the restrictions of the same relations or functions in $\mathfrak{A}_1$.
+
+\proofpart{\textbf{True}.}
+Recalling the definition of isomorphism, we need to prove that it exists a bijection $h \colon \mathfrak{A}_1 \longrightarrow \mathfrak{A}_2$ such that:
+\begin{enumerate}
+	\item For each $n$-ary relation $R$ in the language, for each $(a_1, \dots, a_n) \in A^n_1$,
+	\[
+		\mathfrak{A_1} \models R(x_1, \dots, x_n)[a_1, \dots, a_n] \leftrightarrow \mathfrak{A_2} \models R(x_1, \dots, x_n)[h(a_1), \dots, h(a_n)]
+	\]
+	i.e.
+	\[
+		(a_1, \dots, a_n) \in R^{\mathfrak{A_1}} \leftrightarrow (h(a_1), \dots, h(a_n)) \in R^{\mathfrak{A_2}}.
+	\]
+	\item For each constant symbol $c$ in the language,
+	\[
+		h(c^{\mathfrak{A_1}}) = c^{\mathfrak{A_2}},
+	\]
+	\item For each $n$-ary function symbol $f$ in the language, for every $(a_1, \dots, a_n) \in A_1^n$,
+	\[
+		h(f^{\mathfrak{A1}}(a_1, \dots, a_n)) = f^{\mathfrak{A_2}}(h(a_1), \dots, h(a_n)).
+	\]
+\end{enumerate}
+Let's consider the function that maps each number to its double:
+
+\begin{align*}
+	h \colon \mathbb{N} & \longrightarrow 2\mathbb{N} \\
+	n & \longmapsto n + n.
+\end{align*}
+Now, $h$ is obviously bijective, and we can separately prove each point of the definition for this map.
+
+For the first point, there is nothing to prove, since neither $\mathfrak{A_1}$ or $\mathfrak{A_2}$ have any relation in the language.
+
+For the second point, we only have constant $0$ in $\mathfrak{A_1}$ (i.e., $0^{\mathfrak{A_1}}$), so we can manually check the application of $h$ on the constant:
+
+\[
+	h(0^{\mathfrak{A_1}}) = 0^{\mathfrak{A_1}} + 0^{\mathfrak{A_1}} = 0^{\mathfrak{A_2}}.
+\]
+
+Finally, for the last point, since both structures only have the function symbol $+$, we can write:
+
+\begin{align*}
+	h(f^{\mathfrak{A1}}(a_1, \dots, a_n)) & = h(a_1 + \dots + a_n) = \\
+	& = (a_1 + \dots + a_n) + (a_1 + \dots + a_n) = \\
+	& = (a_1 + a_1) + \dots + (a_n + a_n) = \\
+	& = h(a_1) + \dots + h(a_n) = \\
+	& = f^{\mathfrak{A_2}}(h(a_1), \dots, h(a_n)).
+\end{align*}
+
+\proofpart{\textbf{True}.}
+From the previous part we know that $\mathfrak{A_1} \simeq \mathfrak{A_2}$. Moreover, we know that if two structures are isomorphic, then they satisfy the same of sentences, which concludes this part.
+
+\proofpart{}
+$\dots$
+
+\proofpart{\textbf{True}.}
+Consequence of part 3.
+\proofpart{\textbf{True}.}
+Consequence of part 3.
 \end{proof}
 
 \begin{exercise}{3}
@@ -147,7 +213,7 @@ To prove that ($\mathbb{N}$ +, $\times$, $0$, $1$, $<$) and ($\mathbb{Q}$, $+$, 
 \[
     \forall x \exists y (x + y = 0).
 \]
-This formula is satisfied in ($\mathbb{Q}$, $+$, $\times$, $0$, $1$, $<$), but not in ($\mathbb{N}$ +, $\times$, $0$, $1$, $<$). As for the hint, we know that two structures are isomorphic if and only if they satisfy the same sentences, therefore we can conclude that these two are not.
+This formula is satisfied in ($\mathbb{Q}$, $+$, $\times$, $0$, $1$, $<$), but not in ($\mathbb{N}$ +, $\times$, $0$, $1$, $<$). As for the hint, we know that if two structures are isomorphic, then they satisfy the same sentences. Therefore, we can conclude that these two are not.
 
 \proofpart{}
 To prove that ($\mathbb{N}$, $<$) and ($\mathbb{Z}$, $<$) are not isomorphic, we can proceed in a similar way, using the sentence expressing the existence of the left-end point:
