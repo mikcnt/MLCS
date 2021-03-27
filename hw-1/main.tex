@@ -1,6 +1,8 @@
 \documentclass[12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsthm,xpatch}
+\usepackage{amsmath}
+
 \usepackage{geometry}
 \usepackage{amssymb}
 \usepackage{enumerate}
@@ -87,6 +89,20 @@ This represents the fact that $\mathbb{Q}$ has no left endpoint, while $\mathbb{
 \end{proof}
 
 \section{Group 2}
+\begin{exercise}{2}
+Let $\mathfrak{A}_1 = (\textbf{N}, +, 0)$ and $\mathfrak{A}_2 = (2\textbf{N}, +, 0)$ be two substructures for the language $\mathcal{L} = \{f, c\}$ where $f$ is a function symbol of arity $2$ and $c$ is a constant symbol and $2 \textbf{N}$ denotes the set of even natural numbers. $\mathfrak{A}_1$ and $\mathfrak{A}_2$ interpret $f$ as the sum of their domains and $c$ as $0$. Indicate whether the following are true or false, giving a short justification of your answer.
+\begin{enumerate}[\quad{(}1{)}]
+	\item $\mathfrak{A}_2$ is a substructure of $\mathfrak{A}_1$.
+	\item $\mathfrak{A}_1$ and $\mathfrak{A}_2$ are isomorphic.
+	\item $\mathfrak{A}_1$ and $\mathfrak{A}_2$ satisfy the same sentences in $\mathcal{L}$.
+	\item If $\mathfrak{A}_1 \models \exists x F(x)[\alpha]$ for an assignment $\alpha$ in $A_2$, then there exists $a \in A_1$ such that $\mathfrak{A}_2 \models \exists x F(x)[\alpha \binom{a}{x}]$.
+	\item If $E$ is a sentence of the form $\forall x F(x)$ with $F(x)$ a quantifier-free formula then: \\ If $\mathfrak{A}_1 \models E$ then $\mathfrak{A}_2 \models E$.
+	\item If $E$ is a sentence of the form $\exists x F(x)$ with $F(x)$ a quantifier-free formula, then: \\ If $\mathfrak{A}_1 \models E$ then $\mathfrak{A}_2 \models E$.
+\end{enumerate}
+\end{exercise}
+\begin{proof}
+	\dots
+\end{proof}
 
 \begin{exercise}{3}
 Is the structure $\mathcal{Q} = (\mathbb{Q}, +, \times, 0, 1)$ a substructure $\mathcal{R} = (\mathbb{R}, +, \times, 0, 1)$? Is it an elementary substructure?
