@@ -187,14 +187,14 @@ For the first point, there is nothing to prove.
 
 The second point is trivially true, since we only have two constants in both structures (i.e., $0$ and $1$) and they correspond.
 
-For the last point, since both structures only have the sum and multiplication operations in the language, we need to check if the sum and multiplication operations of the first structure $\mathcal{Q}$ (to which we'll refer to respectively with $+^{\mathcal{Q}}$ and $\times^{\mathcal{Q}}$) are the restrictions of the sum and multiplication operations of the second structure $\mathcal{R}$ (to which we'll refer to respectively with $+^{\mathcal{R}}$ and $\times^{\mathcal{R}}$).
+For the last point, since both structures only have the sum and multiplication operations in the language, we need to check if the sum and multiplication operations of the first structure $\mathcal{Q}$ (to which we'll refer to respectively with $+^{\mathcal{Q}}$ and $\times^{\mathcal{Q}}$) are the restrictions of the sum and multiplication operations of the second structure $\mathcal{R}$ (to which we'll refer to respectively with $+^{\mathcal{R}}$ and $\times^{\mathcal{R}}$). But this is true, since we know that $\mathbb{Q}$ is closed under both sum and multiplication.
 
 \proofpart{Substructure $\mathfrak{B}$ of $\mathfrak{A}$ is not elementary.}
-To prove that the substructure $\mathfrak{B}$ is not elementary, we can consider the formula
+To prove that the substructure $\mathfrak{B}$ is not elementary, we can consider the formula expressing the existence of the root (e.g., in particular we can consider the cubic root to avoid sign problems):
 \[
-    \forall x \exists y ((x > 0) \to (y \times y = x)).
+    \forall x \exists y (y \times y \times y = x).
 \]
-This is clearly true for $\mathcal{R}$, but it is not for $\mathcal{Q}$. In fact, we can consider $x = 2$ and it doesn't exist any $y$ such that $y \times y = 2$.
+This is clearly true for $\mathcal{R}$, but it is not for $\mathcal{Q}$. Therefore $\mathfrak{B}$ is not an elementary substructure.
 \end{proof}
 
 \begin{exercise}{4}
