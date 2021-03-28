@@ -72,10 +72,10 @@ In case 2, the premise of the implication is false, therefore we can conclude th
 \end{proof}
 
 \begin{exercise}{9}
-In the language $\mathcal{L} = \{<\}$ of \textbf{DLO}, write a sentence that distinguishes $(\textbf{N}, <)$ from $(\textbf{Q}, <)$ i.e., that is true in one structure but not in the other.
+In the language $\mathcal{L} = \{<\}$ of \textbf{DLO}, write a sentence that distinguishes $(\mathbb{N}, <)$ from $(\textbf{Q}, <)$ i.e., that is true in one structure but not in the other.
 \end{exercise}
 \begin{proof}
-The following sentence is true in $(\textbf{N}, <)$, but not in $(\textbf{Q}, <)$:
+The following sentence is true in $(\mathbb{N}, <)$, but not in $(\textbf{Q}, <)$:
 \[
     \forall x \exists y (\neg(x = y) \to y < x).
 \]
@@ -85,7 +85,7 @@ This represents the fact that $\mathbb{Q}$ has no left endpoint, while $\mathbb{
 
 \section{Group 2}
 \begin{exercise}{2}
-Let $\mathfrak{A}_1 = (\textbf{N}, +, 0)$ and $\mathfrak{A}_2 = (2\textbf{N}, +, 0)$ be two substructures for the language $\mathcal{L} = \{f, c\}$ where $f$ is a function symbol of arity $2$ and $c$ is a constant symbol and $2 \textbf{N}$ denotes the set of even natural numbers. $\mathfrak{A}_1$ and $\mathfrak{A}_2$ interpret $f$ as the sum of their domains and $c$ as $0$. Indicate whether the following are true or false, giving a short justification of your answer.
+Let $\mathfrak{A}_1 = (\mathbb{N}, +, 0)$ and $\mathfrak{A}_2 = (2\mathbb{N}, +, 0)$ be two substructures for the language $\mathcal{L} = \{f, c\}$ where $f$ is a function symbol of arity $2$ and $c$ is a constant symbol and $2 \mathbb{N}$ denotes the set of even natural numbers. $\mathfrak{A}_1$ and $\mathfrak{A}_2$ interpret $f$ as the sum of their domains and $c$ as $0$. Indicate whether the following are true or false, giving a short justification of your answer.
 \begin{enumerate}[\quad{(}1{)}]
 	\item $\mathfrak{A}_2$ is a substructure of $\mathfrak{A}_1$.
 	\item $\mathfrak{A}_1$ and $\mathfrak{A}_2$ are isomorphic.
@@ -100,12 +100,12 @@ Let's consider each point separately.
 \proofpart{\textbf{True}.}
 Recalling the definition of substructure, we need to prove that:
 \begin{enumerate}
-	\item $B \subseteq A$.
-	\item For every constant symbol $c$, $c^{\mathfrak{A}} = c^{\mathfrak{B}}$.
-	\item Every relation $R^{\mathfrak{B}}$ (resp. function $f^{\mathfrak{B}}$) is the restriction of $R^{\mathfrak{A}}$ (resp. $f^{\mathfrak{A}}$) to B.
+	\item $2 \mathbb{N} \subseteq \mathbb{N}$.
+	\item For every constant symbol $c$, $c^{\mathfrak{A}_1} = c^{\mathfrak{A}_2}$.
+	\item Every relation $R^{\mathfrak{A_2}}$ (resp. function $f^{\mathfrak{A}_2}$) is the restriction of $R^{\mathfrak{A}_1}$ (resp. $f^{\mathfrak{A}_1}$) to $2 \mathbb{N}$.
 \end{enumerate}
 
-The first point, $2 \textbf{N} \subseteq \textbf{N}$, is trivially true. As for the second point, the only constant both structures have is $0$, and therefore this is also true. Finally, to prove that every relation (resp. function) in $\mathfrak{A}_2$ is the restriction of the corresponding relation (reps. function) in $\mathfrak{A}_1$, we observe that we only have the operator $+$ in both structures. Now, if we sum two even numbers we still get an even number, and the sum of natural numbers is still a natural number. Therefore, we can conclude that relations or functions in $\mathfrak{A}_2$ are the restrictions of the same relations or functions in $\mathfrak{A}_1$.
+The first point, $2 \mathbb{N} \subseteq \mathbb{N}$, is trivially true. As for the second point, the only constant both structures have is $0$, and therefore this is also true. Finally, to prove that every relation (resp. function) in $\mathfrak{A}_2$ is the restriction of the corresponding relation (reps. function) in $\mathfrak{A}_1$, we observe that we only have the operator $+$ in both structures. Now, if we sum two even numbers we still get an even number, and the sum of natural numbers is still a natural number. Therefore, we can conclude that relations or functions in $\mathfrak{A}_2$ are the restrictions of the same relations or functions in $\mathfrak{A}_1$.
 
 \proofpart{\textbf{True}.}
 Recalling the definition of isomorphism, we need to prove that it exists a bijection $h \colon \mathfrak{A}_1 \longrightarrow \mathfrak{A}_2$ such that:
