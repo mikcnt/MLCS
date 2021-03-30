@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm,xpatch}
+\usepackage{amsmath}
+
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\geometry{margin=2cm}
+
+\title{MLCS - Homework 2}
+\author{Michele Conti \\ \texttt{1599133}}
+\date{}
+
+
+\theoremstyle{definition}
+\newtheorem{exerciseinner}{Exercise}
+\newenvironment{exercise}[1]{%
+	\renewcommand\theexerciseinner{#1}%
+	\exerciseinner
+}{\endexerciseinner}
+
+\renewcommand*{\proofname}{Solution}
+
+\makeatletter
+\newcounter{proofpart}
+\xpretocmd{\proof}{\setcounter{proofpart}{0}}{}{}
+\newcommand{\proofpart}[1]{%
+	\par
+	\addvspace{\medskipamount}%
+	\stepcounter{proofpart}%
+	\noindent\emph{Part \theproofpart: #1}\par\nobreak\smallskip
+	\@afterheading
+}
+\makeatother
+
+\begin{document}
+\maketitle
+\end{document}
