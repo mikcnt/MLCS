@@ -4,10 +4,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsthm,xpatch}
 \usepackage{amsmath}
-
+\usepackage{tikz} 
 \usepackage{geometry}
 \usepackage{amssymb}
 \usepackage{enumerate}
+\usetikzlibrary{arrows, automata, calc, positioning}
 \geometry{margin=2cm}
 
 \title{MLCS - Homework 2}
@@ -39,11 +40,29 @@
 \begin{document}
 \maketitle
 
-\begin{exercise}{1.2}
-	Consider the following two structures $\mathfrak{G}_1$ and $\mathfrak{G}_2$ for the language of graphs: Write at least two sentences distinguishing the two structures. Discuss the EF-game played on these structures: for what $k$ can the Duplicator win the $k$-rounds game? For what $k$ can Spoiler win?
-	\begin{figure}[h]
-		\includegraphics[width=8cm]{ex1.2}
-		\centering
-	\end{figure}
+\section{EF-games and (non)-expressibility}
+
+\begin{exercise}{1.6}
+	Consider the following two graphs:
+	\begin{enumerate}
+		\item $\mathfrak{G}_1$ is a line of length $4n$;
+		\item $\mathfrak{G}_2$ consists of a line of length $2n$ and a cycle of length $2n$ (the two components are disjoint).
+	\end{enumerate}
+	Analyze the EF games on these structures for $n = 1, 2$ and write a sentence of minimal quantifier rank distinguishing the two structures for $n = 1, 2$.
+	
+	BONUS: Formulate a generalization of your observations and prove that the Acyclicity query is not expressible in the language of graphs over finite graphs, using EF-games.
 \end{exercise}
+\begin{proof}
+Let's discuss every point separately.
+\proofpart{$n = 1$.}
+For $n = 1$, $\mathfrak{G}_1$ is a line of length $4$, while $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $2$ and a cycle of length $2$.
+\input{ex1_6_1_g1}
+\input{ex1_6_1_g2}
+
+\proofpart{$n = 2$.}
+For $n = 2$, $\mathfrak{G}_1$ is a line of length $8$, while $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $4$ and a cycle of length $4$.
+\input{ex1_6_2_g1}
+\input{ex1_6_2_g2}
+\end{proof}
+
 \end{document}
