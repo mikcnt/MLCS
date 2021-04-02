@@ -78,18 +78,18 @@ During the second round, Spoiler can either select a node connected to the first
 
 During the third round, there are three possible scenarios. Namely:
 \begin{enumerate}
-\item Spoiler and Discriminator choose two connected nodes, in the third round they choose a third node connected to either of the previous two.
-\item Spoiler and Discriminator choose two connected nodes, in the third round they choose a third node not connected to either of the previous two.
-\item Spoiler and Discriminator choose two disconnected nodes, in the third round they choose a third node not connected to either of the previous two.
+\item Spoiler and Discriminator choose two connected nodes in the first two rounds, in the third round they choose a third node connected to either of the previous two.
+\item Spoiler and Discriminator choose two connected nodes in the first two rounds, in the third round they choose a third node not connected to either of the previous two.
+\item Spoiler and Discriminator choose two disconnected nodes in the first two rounds, in the third round they choose a third node not connected to either of the previous two.
 \end{enumerate}
 
-It's easy to see that all the mentioned scenarios are possible, since both structures contain three connected nodes (e.g., $v_1$, $v_2$, $v_3$ in $\mathfrak{G}_1$, and $v_1$, $v_2$, $v_3$ in $\mathfrak{G}_2$), two connected nodes and a third one disconnected from the first two (e.g., $v_1$, $v_2$, $v_4$ in $\mathfrak{G}_1$, and $v_1$, $v_2$, $u_1$ in $\mathfrak{G}_2$), and three disconnected nodes (e.g., $v_1$, $v_3$, $v_5$ in $\mathfrak{G}_1$, and $v_1$, $v_3$, $u_1$ in $\mathfrak{G}_2$).
+It's easy to see that all the mentioned scenarios are possible, since both structures contain three connected nodes (e.g., $v_1$, $v_2$, $v_3$ in $\mathfrak{G}_1$, and $u_1$, $u_2$, $u_3$ in $\mathfrak{G}_2$), two connected nodes and a third one disconnected from the first two (e.g., $v_1$, $v_2$, $v_4$ in $\mathfrak{G}_1$, and $u_1$, $u_2$, $e_1$ in $\mathfrak{G}_2$), and three disconnected nodes (e.g., $v_1$, $v_3$, $v_5$ in $\mathfrak{G}_1$, and $u_1$, $u_3$, $w_1$ in $\mathfrak{G}_2$).
 
 Moreover, without loss of generality, we can consider these three as the only possible scenarios. In fact, even if there are still cases that don't follow within those three (e.g., Spoiler and Discriminator choose two disconnected nodes, in the third round they choose a third node connected only to one of the first two), the outcome will still be beneath the cases we described.
 \\
 \textbf{Round 4}:
 
-Spoiler wins.
+Spoiler chooses three connected nodes in structure $\mathfrak{G}_1$ in the first three rounds, in the fourth round he chooses a fourth node connected to either of the previous three. Therefore, Spoiler wins, since there are no 4 connected nodes in the structure $\mathfrak{G}_2$.
 
 
 
