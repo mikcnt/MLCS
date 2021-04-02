@@ -123,6 +123,16 @@ Equal to the rounds of the $n = 1$ case.
 
 Spoiler chooses three nodes in the cycle of $\mathfrak{G}_2$ (e.g., $w_1$, $w_2$, $w_3$) during the first three rounds. In the fourth round he chooses the fourth remaining node in the cycle, creating a cycle of length 4. Therefore, Spoiler wins, since there is no cycle of length $4$ in structure $\mathfrak{G}_1$.
 
+\noindent\textbf{Conclusion}:
+
+Similarly to the $n = 1$ case, we saw that Discriminator can win all 3-rounds games on these structures, while he has no winning condition on some of the 3-rounds games. Therefore, $\mathfrak{G}_1$ and $\mathfrak{G}_2$ cannot be distinguished by a sentence of a quantifier-rank $3$ or less (i.e., $\mathfrak{G}_1 \equiv_3 \mathfrak{G}_2$), and there is a sentence of quantifier-rank $4$ with which we can distinguish the two structure (i.e., $\mathfrak{G}_1 \not\equiv_4 \mathfrak{G}_2$).
+
+Specifically, the sentence we empirically used during the game is the one expressing the existence of $4$-cycle. Formally:
+
+\[
+\exists v_1 \exists v_2 \exists v_3 \exists v_4 (E(v_1, v_2) \land E(v_2, v_3) \land E(v_3, v_4) \land E(v_4, v_1)),
+\]
+where $E(a, b)$ expresses the existence of an edge between nodes $a$ and $b$.
 
 
 \end{proof}
