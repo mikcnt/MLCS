@@ -8,6 +8,7 @@
 \usepackage{geometry}
 \usepackage{amssymb}
 \usepackage{enumerate}
+\usepackage{float}
 \usetikzlibrary{arrows, automata, calc, positioning}
 \geometry{margin=2cm}
 
@@ -55,8 +56,10 @@
 \begin{proof}
 Let's discuss every point separately.
 \proofpart{$n = 1$.}
-In this case, $\mathfrak{G}_1$ is a line of length $4$ (i.e., a graph of containing 5 nodes connected by 4 edges), while $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $2$ and a cycle of length $2$.
+In this case, $\mathfrak{G}_1$ is a line of length $4$ (i.e., a graph of containing 5 nodes connected by 4 edges):
 \input{ex1_6_1_g1}
+\noindent
+While $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $2$ and a cycle of length $2$:
 \input{ex1_6_1_g2}
 
 Let's now simulate a match of the EF-games, analyzing each round individually from both Spoiler's and Discriminator's point of view. For each round, we will consider all possible scenarios, in order to completely solve the game. We will adopt the usual EF rules:
@@ -90,7 +93,7 @@ Moreover, without loss of generality, we can consider these three as the only po
 
 \noindent\textbf{Round 4}:
 
-Spoiler chooses three connected nodes in structure $\mathfrak{G}_1$ in the first three rounds, in the fourth round he chooses a fourth node connected to either of the previous three. Therefore, Spoiler wins, since there are no 4 connected nodes in the structure $\mathfrak{G}_2$.
+Spoiler chooses three connected nodes in structure $\mathfrak{G}_1$ in the first three rounds, in the fourth round he chooses a fourth node connected to either of the previous three. Therefore, Spoiler wins, since there are no 4 connected nodes in structure $\mathfrak{G}_2$.
 
 \noindent\textbf{Conclusion}:
 
@@ -104,9 +107,24 @@ Specifically, the sentence we empirically used during the game is the one expres
 where $E(a, b)$ expresses the existence of an edge between nodes $a$ and $b$.
 
 \proofpart{$n = 2$.}
-For $n = 2$, $\mathfrak{G}_1$ is a line of length $8$, while $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $4$ and a cycle of length $4$.
+For $n = 2$, $\mathfrak{G}_1$ is a line of length $8$:
 \input{ex1_6_2_g1}
+\noindent
+While $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $4$ and a cycle of length $4$:
 \input{ex1_6_2_g2}
+
+As we did in the $n = 1$ case, we now simulate a match of the EF-games, analyzing each round individually from both Spoiler's and Discriminator's point of view.
+
+\noindent\textbf{Round 1}, \textbf{Round 2} and \textbf{Round 3}:
+
+Equal to the rounds of the $n = 1$ case.
+
+\noindent\textbf{Round 4}:
+
+Spoiler chooses three nodes in the cycle of $\mathfrak{G}_2$ (e.g., $w_1$, $w_2$, $w_3$) during the first three rounds. In the fourth round he chooses the fourth remaining node in the cycle, creating a cycle of length 4. Therefore, Spoiler wins, since there is no cycle of length $4$ in structure $\mathfrak{G}_1$.
+
+
+
 \end{proof}
 
 \end{document}
