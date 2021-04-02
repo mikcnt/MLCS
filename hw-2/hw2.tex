@@ -32,7 +32,7 @@
 	\par
 	\addvspace{\medskipamount}%
 	\stepcounter{proofpart}%
-	\noindent\emph{Part \theproofpart: #1}\par\nobreak\smallskip
+	\noindent\emph{{Part \theproofpart: #1}}\par\nobreak\smallskip
 	\@afterheading
 }
 \makeatother
@@ -66,15 +66,16 @@ Let's now simulate a match of the EF-games, analyzing each round individually fr
 	\item If a player chooses his node from one of the two structures, the other player must necessarily choose his node from the other structure.
 	\item Spoiler always tries to win the game in as few moves as possible, while Discriminator always tries to prolong the game as long as possible.
 \end{itemize}
-\textbf{Round 1}:
+
+\noindent\textbf{Round 1}:
 
 During the first round, each player freely chooses a node from one of the structures. There is no special case to mention.
-\\
-\textbf{Round 2}:
+
+\noindent\textbf{Round 2}:
 
 During the second round, Spoiler can either select a node connected to the first one, or select a node disconnected from the first one. Either way, Discriminator can respond with a similar move, since both structures contain both connected and disconnected nodes.
-\\
-\textbf{Round 3}:
+
+\noindent\textbf{Round 3}:
 
 During the third round, there are three possible scenarios. Namely:
 \begin{enumerate}
@@ -86,12 +87,21 @@ During the third round, there are three possible scenarios. Namely:
 It's easy to see that all the mentioned scenarios are possible, since both structures contain three connected nodes (e.g., $v_1$, $v_2$, $v_3$ in $\mathfrak{G}_1$, and $u_1$, $u_2$, $u_3$ in $\mathfrak{G}_2$), two connected nodes and a third one disconnected from the first two (e.g., $v_1$, $v_2$, $v_4$ in $\mathfrak{G}_1$, and $u_1$, $u_2$, $e_1$ in $\mathfrak{G}_2$), and three disconnected nodes (e.g., $v_1$, $v_3$, $v_5$ in $\mathfrak{G}_1$, and $u_1$, $u_3$, $w_1$ in $\mathfrak{G}_2$).
 
 Moreover, without loss of generality, we can consider these three as the only possible scenarios. In fact, even if there are still cases that don't follow within those three (e.g., Spoiler and Discriminator choose two disconnected nodes, in the third round they choose a third node connected only to one of the first two), the outcome will still be beneath the cases we described.
-\\
-\textbf{Round 4}:
+
+\noindent\textbf{Round 4}:
 
 Spoiler chooses three connected nodes in structure $\mathfrak{G}_1$ in the first three rounds, in the fourth round he chooses a fourth node connected to either of the previous three. Therefore, Spoiler wins, since there are no 4 connected nodes in the structure $\mathfrak{G}_2$.
 
+\noindent\textbf{Conclusion}:
 
+We saw that Discriminator can win all 3-rounds games on these structures, while he has no winning condition on some of the 3-rounds games. Therefore, $\mathfrak{G}_1$ and $\mathfrak{G}_2$ cannot be distinguished by a sentence of a quantifier-rank $3$ or less (i.e., $\mathfrak{G}_1 \equiv_3 \mathfrak{G}_2$), and there is a sentence of quantifier-rank $4$ with which we can distinguish the two structure (i.e., $\mathfrak{G}_1 \not\equiv_4 \mathfrak{G}_2$).
+
+Specifically, the sentence we empirically used during the game is the one expressing the existence of 4 connected nodes. Formally:
+
+\[
+	\exists v_1 \exists v_2 \exists v_3 \exists v_4 (E(v_1, v_2) \land E(v_2, v_3) \land E(v_3, v_4)),
+\]
+where $E(a, b)$ expresses the existence of an edge between nodes $a$ and $b$.
 
 \proofpart{$n = 2$.}
 For $n = 2$, $\mathfrak{G}_1$ is a line of length $8$, while $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $4$ and a cycle of length $4$.
