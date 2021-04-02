@@ -55,9 +55,43 @@
 \begin{proof}
 Let's discuss every point separately.
 \proofpart{$n = 1$.}
-For $n = 1$, $\mathfrak{G}_1$ is a line of length $4$, while $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $2$ and a cycle of length $2$.
+In this case, $\mathfrak{G}_1$ is a line of length $4$ (i.e., a graph of containing 5 nodes connected by 4 edges), while $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $2$ and a cycle of length $2$.
 \input{ex1_6_1_g1}
 \input{ex1_6_1_g2}
+
+Let's now simulate a match of the EF-games, analyzing each round individually from both the Spoiler and the Discriminator point of view. For each round, we will consider all possible scenarios, in order to completely solve the game. We will adopt the usual EF rules:
+
+\begin{itemize}
+	\item Spoiler always starts first.
+	\item If a player chooses his node from one of the two structures, the other player must necessarily choose his node from the other structure.
+	\item Spoiler always tries to win the game in as few moves as possible, while Discriminator always tries to prolong the game as long as possible.
+\end{itemize}
+\textbf{Round 1}:
+
+During the first round, each player freely chooses a node from one of the structures. There is no special case to mention.
+\\
+\textbf{Round 2}:
+
+During the second round, Spoiler can either select a node connected to the first one, or select a node disconnected from the first one. Either way, Discriminator can respond with a similar move, since both structures contain both connected and disconnected nodes.
+\\
+\textbf{Round 3}:
+
+During the third round, there are three possible scenarios. Namely:
+\begin{enumerate}
+\item Spoiler and Discriminator choose two connected nodes, in the third round they choose a third node connected to either of the previous two.
+\item Spoiler and Discriminator choose two connected nodes, in the third round they choose a third node not connected to either of the previous two.
+\item Spoiler and Discriminator choose two disconnected nodes, in the third round they choose a third node not connected to either of the previous two.
+\end{enumerate}
+
+It's easy to see that all the mentioned scenarios are possible, since both structures contain three connected nodes (e.g., $v_1$, $v_2$, $v_3$ in $\mathfrak{G}_1$, and $v_1$, $v_2$, $v_3$ in $\mathfrak{G}_2$), two connected nodes and a third one disconnected from the first two (e.g., $v_1$, $v_2$, $v_4$ in $\mathfrak{G}_1$, and $v_1$, $v_2$, $u_1$ in $\mathfrak{G}_2$), and three disconnected nodes (e.g., $v_1$, $v_3$, $v_5$ in $\mathfrak{G}_1$, and $v_1$, $v_3$, $u_1$ in $\mathfrak{G}_2$).
+
+Moreover, without loss of generality, we can consider these three as the only possible scenarios. In fact, even if there are still cases that don't follow within those three (e.g., Spoiler and Discriminator choose two disconnected nodes, in the third round they choose a third node connected only to one of the first two), the outcome will still be beneath the cases we described.
+\\
+\textbf{Round 4}:
+
+Spoiler wins.
+
+
 
 \proofpart{$n = 2$.}
 For $n = 2$, $\mathfrak{G}_1$ is a line of length $8$, while $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $4$ and a cycle of length $4$.
