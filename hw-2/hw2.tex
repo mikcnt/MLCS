@@ -9,6 +9,7 @@
 \usepackage{amssymb}
 \usepackage{enumerate}
 \usepackage{float}
+\usepackage[english]{babel}
 \usetikzlibrary{arrows, automata, calc, positioning}
 \geometry{margin=2cm}
 
@@ -16,15 +17,15 @@
 \author{Michele Conti \\ \texttt{1599133}}
 \date{}
 
-
 \theoremstyle{definition}
-\newtheorem{exerciseinner}{Exercise}
+\newtheorem{exerciseinner}{\underline{Exercise}}
 \newenvironment{exercise}[1]{%
 	\renewcommand\theexerciseinner{#1}%
 	\exerciseinner
 }{\endexerciseinner}
 
 \renewcommand*{\proofname}{Solution}
+\renewenvironment{proof}{{\noindent\bfseries\underline{Solution}.}}{\qed}
 
 \makeatletter
 \newcounter{proofpart}
@@ -33,10 +34,12 @@
 	\par
 	\addvspace{\medskipamount}%
 	\stepcounter{proofpart}%
-	\noindent\emph{{Part \theproofpart: #1}}\par\nobreak\smallskip
+	\noindent\textbf{{Part \theproofpart: }}#1\par\nobreak\smallskip
 	\@afterheading
 }
 \makeatother
+
+
 
 \begin{document}
 \maketitle
@@ -70,19 +73,19 @@
 		\item Spoiler always tries to win the game in as few moves as possible, while Discriminator always tries to prolong the game as long as possible.
 	\end{itemize}
 	
-	\noindent\textbf{Round 1}:
+	\noindent\emph{Round 1}:
 	
 	During the first round, each player freely chooses a node from one of the structures. There is no special case to mention.
 	
-	\noindent\textbf{Round 2}:
+	\noindent\emph{Round 2}:
 	
 	During the second round, Spoiler can either select a node connected to the first one, or select a node disconnected from the first one. Either way, Discriminator can respond with a similar move, since both structures contain both connected and disconnected nodes (e.g., in $\mathfrak{G}_1$ $v_1$ and $v_2$ are connected, while $v_1$ and $v_3$ are not. As for $\mathfrak{G}_2$, $u_1$ and $u_2$ are connected, while $u_1$ and $w_1$ are not).
 	
-	\noindent\textbf{Round 3}:
+	\noindent\emph{Round 3}:
 	
 	Spoiler chooses two connected nodes in structure $\mathfrak{G}_1$ in the first two rounds, in the third round he chooses a third node connected to either of the previous two. Therefore, Spoiler wins, since there are no 3 connected nodes in structure $\mathfrak{G}_2$.
 	
-	\noindent\textbf{Conclusion}:
+	\noindent\emph{Conclusion}:
 	
 	We saw that Discriminator can win all 2-rounds games on these structures, while he has no winning condition on some of the 3-rounds games. Therefore, $\mathfrak{G}_1$ and $\mathfrak{G}_2$ cannot be distinguished by a sentence of a quantifier-rank $2$ or less (i.e., $\mathfrak{G}_1 \equiv_2 \mathfrak{G}_2$), and there is a sentence of quantifier-rank $3$ with which we can distinguish the two structure (i.e., $\mathfrak{G}_1 \not\equiv_3 \mathfrak{G}_2$).
 	
@@ -102,11 +105,11 @@
 	
 	As we did in the $n = 1$ case, we now simulate a match of the EF-games, analyzing each round individually from both Spoiler's and Discriminator's point of view.
 	
-	\noindent\textbf{Round 1}, \textbf{Round 2}:
+	\noindent\emph{Round 1}, \emph{Round 2}:
 	
 	Equal to the rounds of the $n = 1$ case.
 	
-	\noindent\textbf{Round 3}:
+	\noindent\emph{Round 3}:
 
 	During the third round, there are three possible scenarios. Namely:
 	\begin{enumerate}
@@ -119,11 +122,11 @@
 	
 	Moreover, without loss of generality, we can consider these three as the only possible scenarios. In fact, even if there are still cases that don't follow within those three (e.g., Spoiler and Discriminator choose two disconnected nodes, in the third round they choose a third node connected only to one of the first two), the outcome will still be beneath the cases we described.
 	
-	\noindent\textbf{Round 4}:
+	\noindent\emph{Round 4}:
 	
 	Spoiler chooses three connected nodes in structure $\mathfrak{G}_2$ in the first three rounds (e.g., $u_1, u_2, u_3$), in the fourth round he chooses the fourth node remaining in the cycle (i.e., $u_4$), effectively creating a cycle of length 4. Therefore, Spoiler wins, since there is no 4-cycle in structure $\mathfrak{G}_1$.
 	
-	\noindent\textbf{Conclusion}:
+	\noindent\emph{Conclusion}:
 	
 	Similarly to the $n = 1$ case, we saw that Discriminator can win all 3-rounds games on these structures, while he has no winning condition on some of the 4-rounds games. Therefore, $\mathfrak{G}_1$ and $\mathfrak{G}_2$ cannot be distinguished by a sentence of a quantifier-rank $3$ or less (i.e., $\mathfrak{G}_1 \equiv_3 \mathfrak{G}_2$), and there is a sentence of quantifier-rank $4$ with which we can distinguish the two structure (i.e., $\mathfrak{G}_1 \not\equiv_4 \mathfrak{G}_2$).
 	
@@ -166,15 +169,15 @@ Let's now simulate a match of the EF-games, analyzing each round individually fr
 	\item Spoiler always tries to win the game in as few moves as possible, while Discriminator always tries to prolong the game as long as possible.
 \end{itemize}
 
-\noindent\textbf{Round 1}:
+\noindent\emph{Round 1}:
 
 During the first round, each player freely chooses a node from one of the structures. There is no special case to mention.
 
-\noindent\textbf{Round 2}:
+\noindent\emph{Round 2}:
 
 During the second round, Spoiler can either select a node connected to the first one, or select a node disconnected from the first one. Either way, Discriminator can respond with a similar move, since both structures contain both connected and disconnected nodes.
 
-\noindent\textbf{Round 3}:
+\noindent\emph{Round 3}:
 
 During the third round, there are three possible scenarios. Namely:
 \begin{enumerate}
@@ -187,11 +190,11 @@ It's easy to see that all the mentioned scenarios are possible, since both struc
 
 Moreover, without loss of generality, we can consider these three as the only possible scenarios. In fact, even if there are still cases that don't follow within those three (e.g., Spoiler and Discriminator choose two disconnected nodes, in the third round they choose a third node connected only to one of the first two), the outcome will still be beneath the cases we described.
 
-\noindent\textbf{Round 4}:
+\noindent\emph{Round 4}:
 
 Spoiler chooses three connected nodes in structure $\mathfrak{G}_1$ in the first three rounds, in the fourth round he chooses a fourth node connected to either of the previous three. Therefore, Spoiler wins, since there are no 4 connected nodes in structure $\mathfrak{G}_2$.
 
-\noindent\textbf{Conclusion}:
+\noindent\emph{Conclusion}:
 
 We saw that Discriminator can win all 3-rounds games on these structures, while he has no winning condition on some of the 4-rounds games. Therefore, $\mathfrak{G}_1$ and $\mathfrak{G}_2$ cannot be distinguished by a sentence of a quantifier-rank $3$ or less (i.e., $\mathfrak{G}_1 \equiv_3 \mathfrak{G}_2$), and there is a sentence of quantifier-rank $4$ with which we can distinguish the two structure (i.e., $\mathfrak{G}_1 \not\equiv_4 \mathfrak{G}_2$).
 
@@ -211,15 +214,15 @@ While $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $4
 
 As we did in the $n = 1$ case, we now simulate a match of the EF-games, analyzing each round individually from both Spoiler's and Discriminator's point of view.
 
-\noindent\textbf{Round 1}, \textbf{Round 2} and \textbf{Round 3}:
+\noindent\emph{Round 1}, \emph{Round 2} and \emph{Round 3}:
 
 Equal to the rounds of the $n = 1$ case.
 
-\noindent\textbf{Round 4}:
+\noindent\emph{Round 4}:
 
 Spoiler chooses three nodes in the cycle of $\mathfrak{G}_2$ (e.g., $w_1$, $w_2$, $w_3$) during the first three rounds. In the fourth round he chooses the fourth remaining node in the cycle, creating a cycle of length 4. Therefore, Spoiler wins, since there is no cycle of length $4$ in structure $\mathfrak{G}_1$.
 
-\noindent\textbf{Conclusion}:
+\noindent\emph{Conclusion}:
 
 Similarly to the $n = 1$ case, we saw that Discriminator can win all 3-rounds games on these structures, while he has no winning condition on some of the 4-rounds games. Therefore, $\mathfrak{G}_1$ and $\mathfrak{G}_2$ cannot be distinguished by a sentence of a quantifier-rank $3$ or less (i.e., $\mathfrak{G}_1 \equiv_3 \mathfrak{G}_2$), and there is a sentence of quantifier-rank $4$ with which we can distinguish the two structure (i.e., $\mathfrak{G}_1 \not\equiv_4 \mathfrak{G}_2$).
 
@@ -232,7 +235,13 @@ where $E(a, b)$ expresses the existence of an edge between nodes $a$ and $b$.
 
 \proofpart{Bonus.}
 
-To prove that the acyclicity query is not expressible in the language of graphs over finite graphs, we must show that, for each $k$, it is always possible to choose a pair of graphs, one of which has the property of acyclicity while the other does not, so that these are not distinguishable by a formula of quantifier-rank $k$.
+To prove that the acyclicity query is not expressible in the language of graphs over finite graphs, we must show that, for every $k$, there are two finite structures $\mathfrak{A}$ and $\mathfrak{B}$ such that $\mathfrak{A}$ contain a cycle and $\mathfrak{B}$ does not, and such that Discriminator wins the game $G_k$ on ($\mathfrak{A}$, $\mathfrak{B}$).
+
+Let's assume now that $\mathfrak{A}$ is a cycle of length $k + 2$. This obviously contains a cycle, and therefore we can affirm that the aciclicity query is respected by it.
+\input{structures/ex1_5_3_a}
+
+Let's also assume that $\mathfrak{B}$ is a line of length $k$. Since a this structure doesn't contain a cycle, we can affirm that the aciclicity query is not respected by it.
+\input{structures/ex1_5_3_b}
 \end{proof}
 
 \end{document}
