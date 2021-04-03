@@ -43,9 +43,20 @@
 
 \section{EF-games and (non)-expressibility}
 
+\begin{exercise}{1.5}
+	Consider the following two structures (for the language of graphs):
+	\begin{enumerate}[\quad{(}1{)}]
+		\item $\mathfrak{G}_1$ is a cycle of length $4n$;
+		\item $\mathfrak{G}_2$ consists of two disjoint cycles of length $2n$.
+	\end{enumerate}
+	Analyze the EF games on these structures for $n = 1, 2$ and write a sentence of minimal quantifier rank distinguishing the two structures for $n = 1, 2$.
+	
+	BONUS: Formulate a generalization of your observation and prove that the Connectivity query is not expressible in the language of graphs over finite graphs, using EF-games.
+\end{exercise}
+
 \begin{exercise}{1.6}
 	Consider the following two graphs:
-	\begin{enumerate}
+	\begin{enumerate}[\quad{(}1{)}]
 		\item $\mathfrak{G}_1$ is a line of length $4n$;
 		\item $\mathfrak{G}_2$ consists of a line of length $2n$ and a cycle of length $2n$ (the two components are disjoint).
 	\end{enumerate}
@@ -134,7 +145,9 @@ Specifically, the sentence we empirically used during the game is the one expres
 \]
 where $E(a, b)$ expresses the existence of an edge between nodes $a$ and $b$.
 
+\proofpart{Bonus.}
 
+To prove that the acyclicity query is not expressible in the language of graphs over finite graphs, we must show that, for each $k$, it is always possible to choose a pair of graphs, one of which has the property of acyclicity while the other does not, so that these are not distinguishable by a formula of quantifier-rank $k$.
 \end{proof}
 
 \end{document}
