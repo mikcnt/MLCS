@@ -57,10 +57,10 @@
 	Let's discuss every point separately.
 	\proofpart{$n = 1$.}
 	In this case, $\mathfrak{G}_1$ is a cycle of length $4$:
-	\input{ex1_5_1_g1}
+	\input{structures/ex1_5_1_g1}
 	\noindent
 	While $\mathfrak{G}_2$ is the disjoint structure composed by two cycles of length $2$:
-	\input{ex1_5_1_g2}
+	\input{structures/ex1_5_1_g2}
 	
 	Let's now simulate a match of the EF-games, analyzing each round individually from both Spoiler's and Discriminator's point of view. For each round, we will consider all possible scenarios, in order to completely solve the game. We will adopt the usual EF rules:
 	
@@ -71,7 +71,27 @@
 	\end{itemize}
 	
 	\noindent\textbf{Round 1}:
-	\dots
+	
+	During the first round, each player freely chooses a node from one of the structures. There is no special case to mention.
+	
+	\noindent\textbf{Round 2}:
+	
+	During the second round, Spoiler can either select a node connected to the first one, or select a node disconnected from the first one. Either way, Discriminator can respond with a similar move, since both structures contain both connected and disconnected nodes (e.g., in $\mathfrak{G}_1$ $v_1$ and $v_2$ are connected, while $v_1$ and $v_3$ are not. As for $\mathfrak{G}_2$, $u_1$ and $u_2$ are connected, while $u_1$ and $w_1$ are not).
+	
+	\noindent\textbf{Round 3}:
+	
+	Spoiler chooses two connected nodes in structure $\mathfrak{G}_1$ in the first two rounds, in the third round he chooses a third node connected to either of the previous two. Therefore, Spoiler wins, since there are no 3 connected nodes in structure $\mathfrak{G}_2$.
+	
+	\noindent\textbf{Conclusion}:
+	
+	We saw that Discriminator can win all 2-rounds games on these structures, while he has no winning condition on some of the 3-rounds games. Therefore, $\mathfrak{G}_1$ and $\mathfrak{G}_2$ cannot be distinguished by a sentence of a quantifier-rank $2$ or less (i.e., $\mathfrak{G}_1 \equiv_2 \mathfrak{G}_2$), and there is a sentence of quantifier-rank $3$ with which we can distinguish the two structure (i.e., $\mathfrak{G}_1 \not\equiv_3 \mathfrak{G}_2$).
+	
+	Specifically, the sentence we empirically used during the game is the one expressing the existence of 3 connected nodes. Formally:
+	
+	\[
+	\exists v_1 \exists v_2 \exists v_3 (E(v_1, v_2) \land E(v_2, v_3)),
+	\]
+	where $E(a, b)$ expresses the existence of an edge between nodes $a$ and $b$.
 \end{proof}
 
 
@@ -89,10 +109,10 @@
 Let's discuss every point separately.
 \proofpart{$n = 1$.}
 In this case, $\mathfrak{G}_1$ is a line of length $4$ (i.e., a graph of containing 5 nodes connected by 4 edges):
-\input{ex1_6_1_g1}
+\input{structures/ex1_6_1_g1}
 \noindent
 While $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $2$ and a cycle of length $2$:
-\input{ex1_6_1_g2}
+\input{structures/ex1_6_1_g2}
 
 Let's now simulate a match of the EF-games, analyzing each round individually from both Spoiler's and Discriminator's point of view. For each round, we will consider all possible scenarios, in order to completely solve the game. We will adopt the usual EF rules:
 
@@ -129,7 +149,7 @@ Spoiler chooses three connected nodes in structure $\mathfrak{G}_1$ in the first
 
 \noindent\textbf{Conclusion}:
 
-We saw that Discriminator can win all 3-rounds games on these structures, while he has no winning condition on some of the 3-rounds games. Therefore, $\mathfrak{G}_1$ and $\mathfrak{G}_2$ cannot be distinguished by a sentence of a quantifier-rank $3$ or less (i.e., $\mathfrak{G}_1 \equiv_3 \mathfrak{G}_2$), and there is a sentence of quantifier-rank $4$ with which we can distinguish the two structure (i.e., $\mathfrak{G}_1 \not\equiv_4 \mathfrak{G}_2$).
+We saw that Discriminator can win all 3-rounds games on these structures, while he has no winning condition on some of the 4-rounds games. Therefore, $\mathfrak{G}_1$ and $\mathfrak{G}_2$ cannot be distinguished by a sentence of a quantifier-rank $3$ or less (i.e., $\mathfrak{G}_1 \equiv_3 \mathfrak{G}_2$), and there is a sentence of quantifier-rank $4$ with which we can distinguish the two structure (i.e., $\mathfrak{G}_1 \not\equiv_4 \mathfrak{G}_2$).
 
 Specifically, the sentence we empirically used during the game is the one expressing the existence of 4 connected nodes. Formally:
 
@@ -140,10 +160,10 @@ where $E(a, b)$ expresses the existence of an edge between nodes $a$ and $b$.
 
 \proofpart{$n = 2$.}
 For $n = 2$, $\mathfrak{G}_1$ is a line of length $8$:
-\input{ex1_6_2_g1}
+\input{structures/ex1_6_2_g1}
 \noindent
 While $\mathfrak{G}_2$ is the disjoint structure composed by a line of length $4$ and a cycle of length $4$:
-\input{ex1_6_2_g2}
+\input{structures/ex1_6_2_g2}
 
 As we did in the $n = 1$ case, we now simulate a match of the EF-games, analyzing each round individually from both Spoiler's and Discriminator's point of view.
 
