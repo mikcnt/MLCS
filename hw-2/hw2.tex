@@ -53,6 +53,27 @@
 	
 	BONUS: Formulate a generalization of your observation and prove that the Connectivity query is not expressible in the language of graphs over finite graphs, using EF-games.
 \end{exercise}
+\begin{proof}
+	Let's discuss every point separately.
+	\proofpart{$n = 1$.}
+	In this case, $\mathfrak{G}_1$ is a cycle of length $4$:
+	\input{ex1_5_1_g1}
+	\noindent
+	While $\mathfrak{G}_2$ is the disjoint structure composed by two cycles of length $2$:
+	\input{ex1_5_1_g2}
+	
+	Let's now simulate a match of the EF-games, analyzing each round individually from both Spoiler's and Discriminator's point of view. For each round, we will consider all possible scenarios, in order to completely solve the game. We will adopt the usual EF rules:
+	
+	\begin{itemize}
+		\item Spoiler always starts first.
+		\item If a player chooses his node from one of the two structures, the other player must necessarily choose his node from the other structure.
+		\item Spoiler always tries to win the game in as few moves as possible, while Discriminator always tries to prolong the game as long as possible.
+	\end{itemize}
+	
+	\noindent\textbf{Round 1}:
+	\dots
+\end{proof}
+
 
 \begin{exercise}{1.6}
 	Consider the following two graphs:
