@@ -138,9 +138,20 @@
 	where $E(a, b)$ expresses the existence of an edge between nodes $a$ and $b$.
 	
 	\proofpart{Bonus.}
-	\dots
+	To prove that the connectivity query is not expressible in the language of graphs over finite graphs, we need to show that, for every $k \in \mathbb{N}$, there exist two structures, respectively:
+	
+	\begin{itemize}
+		\item $\mathfrak{G}_1$, a connected graph,
+		\item $\mathfrak{G}_2$, a disconnected graph
+	\end{itemize}
+	such that $\mathfrak{G}_1 \equiv_k \mathfrak{G}_2$.
+	
+	Intuitively, in order to build such structures, one could build $\mathfrak{G}_1$ and $\mathfrak{G}_2$ such that their number of nodes is very big compared to the fixed number of moves for the game. For the first structure we can consider a (very big) cycle, and for the second we can consider a structure made by two disjoint connected graphs.
+	
+	In particular, we can generalize the first two cases of the exercise; therefore, for each $k \in \mathbb{N}$, we can consider $\mathfrak{G}_1$ to be the cycle of length $4k$, and $\mathfrak{G}_2$ to be the disjoint structure composed by two cycles of length $2k$.
+	
+	
 \end{proof}
-
 
 \begin{exercise}{1.6}
 	Consider the following two graphs:
@@ -232,16 +243,6 @@ Specifically, the sentence we empirically used during the game is the one expres
 \exists v_1 \exists v_2 \exists v_3 \exists v_4 (E(v_1, v_2) \land E(v_2, v_3) \land E(v_3, v_4) \land E(v_4, v_1)),
 \]
 where $E(a, b)$ expresses the existence of an edge between nodes $a$ and $b$.
-
-\proofpart{Bonus.}
-
-To prove that the acyclicity query is not expressible in the language of graphs over finite graphs, we must show that, for every $k$, there are two finite structures $\mathfrak{A}$ and $\mathfrak{B}$ such that $\mathfrak{A}$ contain a cycle and $\mathfrak{B}$ does not, and such that Discriminator wins the game $G_k$ on ($\mathfrak{A}$, $\mathfrak{B}$).
-
-Let's assume now that $\mathfrak{A}$ is a cycle of length $k + 2$. This obviously contains a cycle, and therefore we can affirm that the aciclicity query is respected by it.
-\input{structures/ex1_5_3_a}
-
-Let's also assume that $\mathfrak{B}$ is a line of length $k$. Since a this structure doesn't contain a cycle, we can affirm that the aciclicity query is not respected by it.
-\input{structures/ex1_5_3_b}
 \end{proof}
 
 \end{document}
