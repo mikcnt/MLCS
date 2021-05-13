@@ -88,11 +88,46 @@ Similarly to the previous point, we can proceed by contradiction, assuming that 
 	M(x)= \begin{cases}
 		M_1(x) & \text{if } x \in L_1 \\
 		M_2(x) & \text{if } x \in L_2 \\
-		M_2(x) & \text{if } x \not\in L_1 \cup L_2
+		M_2(x) & \text{if } x \not\in L_1 \cup L_2.
 	\end{cases}
 \]
 
 The existence of this machine would be equivalent to the fact that $L_1 \cup L_2$ is computable, which again would be absurd. Therefore, we can conclude that $L_1$ is not computable.
+
+\proofpart{}
+Similarly to the previous points, we can proceed by contradiction, assuming that $L_1$ is computable. Again, we'll consider a new Turing Acceptor $M$, but we'll proceed in a slightly different way.
+
+Since $L_1$ and $L_2$ are computable, given a point $x$ they either accept or reject it. Therefore, we can define the new Turing Acceptor based on the behaviour of the two Acceptors:
+
+\[
+\begin{cases}
+M(x) \uparrow & \text{if } M_1(x) \uparrow \text{ and }  M_2(x) \downarrow \\
+M(x) \downarrow & \text{otherwise}.
+\end{cases}
+\]
+
+This machine would accept every element in $L_1 \setminus L_2$, and would reject everything else, therefore its existence would be equivalent to the fact that $L_1 \setminus L_2$ is computable. This is absurd, and thus we can conclude that $L_1$ is not computable.
+
+\proofpart{}
+We can proceed in a specular way to the previous point. Proceeding by contradiction, we assume that $L_1$ is computable. Let's consider the new Turing Acceptor $M$:
+
+\[
+\begin{cases}
+M(x) \uparrow & \text{if } M_1(x) \downarrow \text{ and }  M_2(x) \uparrow \\
+M(x) \downarrow & \text{otherwise}.
+\end{cases}
+\]
+
+This machine would accept every element in $L_2 \setminus L_1$, and would reject everything else, therefore its existence would be equivalent to the fact that $L_2 \setminus L_1$ is computable. This is absurd, and thus we can conclude that $L_1$ is not computable.
+
+\proofpart{}
+For this last point, we'll have to change our strategy. Both implications ($L_1 \cup L_2$ is computable and $L_1 \cap L_2$ is computable) can be proved using similar reasonings, but we'll analyze both of them separately.
+
+Let's start by proving that $L_1 \cup L_2$ is computably enumerable. Consider the two Acceptors $M_1$ and $M_2$ and a point $x$. Now, if we choose one of the two machines, we can express the computation of $x$ as a collection of snapshots, and therefore we can analyze the whole computation step by step. Let's now consider this mechanism for both machines simultaneously: we first compute one computation step of the Acceptor $M_1$, then we compute one computation step of the Acceptor $M_2$, and we cyclically continue using this strategy.
+
+There are now two cases. If $x \not\in L_1 \cup L_2$, then both machines would diverge, as both $L_1$ and $L_2$ are computably enumerable. On the other hand, if $x \in L_1 \cup L_2$, one of the two machines would eventually accept, and we can therefore stop the computation. This proves that $L_1 \cup L_2$ is computably enumerable.
+
+Now to the second implication: $L_1 \cap L_2$ is computably enumerable. Following the same idea, we can again analyze the machines behaviour in a step-by-step fashion. Now, if $x \not\in L_1 \cup L_2$, both machines would still diverge. On the other hand, we would stop the computation only if both the machines accepts at a certain time step. This would clearly never happen if $x \in L_1 \setminus L_2$ or if $x \in L_2 \setminus L_1$ (since one of the two machines would continue the computation forever), and would certainly happen on the intersection $L_1 \cap L_2$, since both machines are computably enumerable. This proves that $L_1 \cap L_2$ is computably enumerable.
 
 \end{proof}
 \section{\textit{NP} problems}
