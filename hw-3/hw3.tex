@@ -56,6 +56,43 @@
 	\end{enumerate}
 \end{exercise}
 \begin{proof}
+The first four points can be proved proceeding by contradiction, slightly tweeking the rationale at each case.
+
+\proofpart{}
+Let's assume by contradiction that $L_1$ is computable. By hypothesis, we also know that $L_2$ is computable, therefore there exist two Turing Acceptors $M_1$ and $M_2$ such that, for $i = 1, 2$:
+\[
+	\text{if } x \in L_i \text{ then } M_i \text{ accepts } x; \text{ if } x \not\in L_i \text{ then } M_i \text{ rejects } x.
+\]
+
+Let's consider now a new Turing Acceptor $M$, defined as follows:
+
+\[
+	M(x)= \begin{cases}
+		M_1(x) & \text{if } x \in L_1 \cap L_2 \\
+		M_1(x) & \text{if } x \in L_2 \setminus L_1 \\
+		M_2(x) & \text{if } x \in L_1 \setminus L_2 \\
+		M_2(x) & \text{if } x \not\in L_1 \cup L_2
+	\end{cases}
+\]
+where $M_1(x)$ and $M_2(x)$ are respectively the results of the computation of the Turing machines $M_1$ and $M_2$ on the element $x$.
+
+The existence of such machine is, by definition, equivalent to the fact that $L_1 \cap L_2$ is decidable, since the elements in $L_1 \cap L_2$ are going to be accepted by the machine $M$ and all the elements outside $L_1 \cap L_2$ are going to be rejected. This is absurd by hypothesis. Therefore, we can conclude that $L_1$ is not computable.
+
+
+Notice also that the for the first and last cases in the definition of $M$, we could have chosen either $M_1$ and $M_2$, getting the same results.
+
+\proofpart{}
+Similarly to the previous point, we can proceed by contradiction, assuming that $L_1$ is computable, and considering a new Turing Acceptor $M$:
+
+\[
+	M(x)= \begin{cases}
+		M_1(x) & \text{if } x \in L_1 \\
+		M_2(x) & \text{if } x \in L_2 \\
+		M_2(x) & \text{if } x \not\in L_1 \cup L_2
+	\end{cases}
+\]
+
+The existence of this machine would be equivalent to the fact that $L_1 \cup L_2$ is computable, which again would be absurd. Therefore, we can conclude that $L_1$ is not computable.
 
 \end{proof}
 \section{\textit{NP} problems}
