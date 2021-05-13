@@ -1,0 +1,51 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm,xpatch}
+\usepackage{amsmath}
+\usepackage{tikz} 
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage[english]{babel}
+\usetikzlibrary{arrows, automata, calc, positioning}
+\geometry{margin=2cm}
+
+\title{MLCS - Homework 3}
+\author{Michele Conti \\ \texttt{1599133}}
+\date{}
+
+\theoremstyle{definition}
+\newtheorem{exerciseinner}{\underline{Exercise}}
+\newenvironment{exercise}[1]{%
+	\renewcommand\theexerciseinner{#1}%
+	\exerciseinner
+}{\endexerciseinner}
+
+\renewcommand*{\proofname}{Solution}
+\renewenvironment{proof}{{\noindent\bfseries\underline{Solution}.}}{\qed}
+
+\makeatletter
+\newcounter{proofpart}
+\xpretocmd{\proof}{\setcounter{proofpart}{0}}{}{}
+\newcommand{\proofpart}[1]{%
+	\par
+	\addvspace{\medskipamount}%
+	\stepcounter{proofpart}%
+	\noindent\textbf{{Part \theproofpart: }}#1\par\nobreak\smallskip
+	\@afterheading
+}
+\makeatother
+
+
+
+\begin{document}
+\maketitle
+
+\section{Computable, c.e. and not computable Problems}
+
+\section{\textit{NP} problems}
+
+\end{document}
