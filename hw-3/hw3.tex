@@ -67,42 +67,34 @@ Let's assume by contradiction that $L_1$ is computable. By hypothesis, we also k
 Let's consider now a new Turing Acceptor $M$, defined as follows:
 
 \[
-	M(x)= \begin{cases}
-		M_1(x) & \text{if } x \in L_1 \cap L_2 \\
-		M_1(x) & \text{if } x \in L_2 \setminus L_1 \\
-		M_2(x) & \text{if } x \in L_1 \setminus L_2 \\
-		M_2(x) & \text{if } x \not\in L_1 \cup L_2
+	\begin{cases}
+		M \text{ accepts } x & \text{if both } M_1 \text{ and } M_2 \text{ accept } x \\
+		M \text{ rejects } x & \text{otherwise}. \\
 	\end{cases}
 \]
-where $M_1(x)$ and $M_2(x)$ are respectively the results of the computation of the Turing Acceptors $M_1$ and $M_2$ on the element $x$.
 
-The existence of such machine is, by definition, equivalent to the fact that $L_1 \cap L_2$ is decidable, since the elements in $L_1 \cap L_2$ are going to be accepted by the machine $M$ and all the elements outside $L_1 \cap L_2$ are going to be rejected. This is absurd by hypothesis. Therefore, we can conclude that $L_1$ is not computable.
-
-Notice also that the for the first and last cases in the definition of $M$, we could have chosen either $M_1$ and $M_2$, getting the same results.
+The existence of such machine is, by definition, equivalent to the fact that $L_1 \cap L_2$ is decidable, since the elements in $L_1 \cap L_2$ are going to be accepted by the machine $M$ and all the elements outside $L_1 \cap L_2$ are going to be rejected. But this is absurd by hypothesis. Therefore, we can conclude that $L_1$ is not computable.
 
 \proofpart{}
 Similarly to the previous point, we can proceed by contradiction, assuming that $L_1$ is computable, and considering a new Turing Acceptor $M$:
 
 \[
-	M(x)= \begin{cases}
-		M_1(x) & \text{if } x \in L_1 \\
-		M_2(x) & \text{if } x \in L_2 \\
-		M_2(x) & \text{if } x \not\in L_1 \cup L_2.
+	\begin{cases}
+		M \text{ accepts } x & \text{if either } M_1 \text{ or } M_2 \text{ accept } x \\
+		M \text{ rejects } x & \text{otherwise}. \\
 	\end{cases}
 \]
 
-The existence of this machine would be equivalent to the fact that $L_1 \cup L_2$ is computable, which again would be absurd. Therefore, we can conclude that $L_1$ is not computable.
+The existence of this machine would be equivalent to the fact that $L_1 \cup L_2$ is computable, since the elements in $L_1 \cup L_2$ are going to be accepted by the machine $M$ and all the elements outside $L_1 \cup L_2$ are going to be rejected, which, again, would be an absurd. Therefore, we can conclude that $L_1$ is not computable.
 
 \proofpart{}
-Similarly to the previous points, we can proceed by contradiction, assuming that $L_1$ is computable. Again, we'll consider a new Turing Acceptor $M$, but we'll proceed in a slightly different way.
-
-Since $L_1$ and $L_2$ are computable, given a point $x$ they either accept or reject it. Therefore, we can define the new Turing Acceptor based on the behaviour of the two Acceptors:
+Similarly to the previous points, we can proceed by contradiction, assuming that $L_1$ is computable. Again, we'll consider a new Turing Acceptor $M$:
 
 \[
-\begin{cases}
-M \text{ accepts } x & \text{if } M_1 \text{ accepts } x \text{ and }  M_2 \text{ rejects } x \\
-M \text{ rejects } x & \text{otherwise}.
-\end{cases}
+	\begin{cases}
+		M \text{ accepts } x & \text{if } M_1 \text{ accepts } x \text{ and }  M_2 \text{ rejects } x \\
+		M \text{ rejects } x & \text{otherwise}.
+	\end{cases}
 \]
 
 This machine would accept every element in $L_1 \setminus L_2$, and would reject everything else, therefore its existence would be equivalent to the fact that $L_1 \setminus L_2$ is computable. This is absurd, and thus we can conclude that $L_1$ is not computable.
@@ -137,7 +129,7 @@ Now to the second implication: $L_1 \cap L_2$ is computably enumerable. Followin
 \begin{proof}
 	As the author suggests, we can start by defining the formula expressing the negation of connectivity for a graph.
 	
-	A graph is not connected if it exists a proper subset of the set of vertices of the graph (i.e., at least one node of the graph belongs to this subset, and at least one doesn't) such that, for each couple of nodes, if it exists an edge between them, then they either both belong to this subset, or they both don't.
+	A graph is not connected if it exists a proper subset of the set of vertices of the graph (i.e., at least one node of the graph belongs to this subset, and at least one doesn't) such that, however we choose two nodes, if it exists an edge between them, then they either both belong to this subset, or they both don't.
 	
 	We can express this using an Existential Second Order formula, as follows:
 	\[
