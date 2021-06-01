@@ -1,0 +1,95 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm,xpatch}
+\usepackage{amsmath}
+\usepackage{tikz} 
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{enumerate}
+\usepackage{float}
+\usepackage[english]{babel}
+\usetikzlibrary{arrows, automata, calc, positioning}
+\geometry{margin=2cm}
+
+\title{MLCS - Homework 4}
+\author{Michele Conti \\ \texttt{1599133}}
+\date{}
+
+\theoremstyle{definition}
+\newtheorem{exerciseinner}{\underline{Exercise}}
+\newenvironment{exercise}[1]{%
+	\renewcommand\theexerciseinner{#1}%
+	\exerciseinner
+}{\endexerciseinner}
+
+\renewcommand*{\proofname}{Solution}
+\renewenvironment{proof}{{\noindent\bfseries\underline{Solution}.}}{\qed}
+
+\makeatletter
+\newcounter{proofpart}
+\xpretocmd{\proof}{\setcounter{proofpart}{0}}{}{}
+\newcommand{\proofpart}[1]{%
+	\par
+	\addvspace{\medskipamount}%
+	\stepcounter{proofpart}%
+	\noindent\textbf{{Part \theproofpart: }}#1\par\nobreak\smallskip
+	\@afterheading
+}
+\makeatother
+
+
+
+\begin{document}
+\maketitle
+
+\section{Compactness}
+\begin{exercise}{1.3}
+	Show that the property of being a non-bipartite graph is not finitely axiomatizable.
+	
+	(Hint: use a particular property of bipartite graphs concerning cycles and a standard Compactness
+	argument).
+\end{exercise}
+\begin{proof}
+	Let's recall the definition of a bipartite graph: a bipartite graph is a graph whose vertices can be divided into two disjoint and independent sets $U$ and $V$ such that every edge connects a vertex in $U$ to one in $V$. Equivalently, a bipartite graph is a graph that does not contain any odd-length cycles.
+	
+	To prove that being a non-bipartite graph is not finitely axiomatizable, we're going to exploit the latter definition, and we will basically repeat the proof for the finiteness property that we saw during the lectures.
+	
+	Let's proceed by contradiction: we assume that being a non-bipartite graph is finitely axiomatizable, and that $T$ is the sentence that axiomatizes it. By definition, this means that, for any structure $\mathfrak{A}$, the following holds:
+	
+	\[
+		\mathfrak{A} \models T \iff \mathfrak{A} \text{ is a non-bipartite graph}.
+	\]
+	
+	We then consider the theory composed by the sentence $T$ augmented by sentences expressing the fact that it doesn't exist an odd-length cycle of length $2n + 1$. Such a sentence is easily expressible in first-order logic with equality:
+	
+	\[
+		A_n := \lnot (\exists x_1 \dots \exists x_{2n + 1}
+		((\bigwedge_{1 \le i \le j \le 2n + 1} x_i \ne x_j) \ \land \ (\bigwedge_{1 \le i \le 2n + 1} E(x_i, x_{i + 1})) \ \land \  (E(x_1, x_{2n + 1}))))
+	\]
+	
+	We then consider the theory
+	\[
+		T \cup \{ A_n \, :\,  n \in \mathbf{N} \}.
+	\]
+	Consider now a finite subset $X$ of this theory. 
+	
+	Now $X$ can either contain or not the sentence $T$, along with a finite number of sentences from $\{ A_n \, :\,  n \in \mathbf{N} \}$, say $A_{n_1}, \dots, A_{n_q}$.
+	
+	Either way, we claim that $X$ has a model.
+	
+	\proofpart{$X$ contains $T$}
+	Let's suppose that $X$ contains $T$ and a set of sentences $A_{n_1}, \dots, A_{n_q}$ from $\{ A_n \, :\,  n \in \mathbf{N} \}$. First, $T$ is true for all non bipartite graphs, which corresponds to the graphs that have at least one odd-length cycle. Second, any structure without a cycle of length $2n_{n_1} + 1, \dots, 2n_{n_q} + 1$ satisfies $A_{n_1}, \dots, A_{n_q}$. Therefore, any structure that doesn't contain any cycles of length $2n_{n_1} + 1, \dots, 2n_{n_q} + 1$ and simultaneously contain at least one odd-length cycle (specifically, an odd cycle different from the ones we just described, that is an odd-length cycle of length $2n_k + 1$ with $k \ne n_{n_1}, \dots, k \ne n_{n_q}$), satisfies $X$.
+	
+	\proofpart{$X$ doesn't contain $T$}
+	The second possibility is that $X$ only contains a set of sentences $A_{n_1}, \dots, A_{n_q}$ from $\{ A_n \, :\,  n \in \mathbf{N} \}$. Any structure without a cycle of length $2n_{n_1} + 1, \dots, 2n_{n_q} + 1$ satisfies $A_{n_1}, \dots, A_{n_q}$. Therefore, any structure that doesn't contain any cycles of length $2n_{n_1} + 1, \dots, 2n_{n_q} + 1$ satisfies $X$.
+	
+	
+	We have thus proved that any finite subset of $T \cup \{ A_n \, :\,  n \in \mathbf{N} \}$ has a model. By the Compactness Theorem, it then follows that the whole theory has a model. Let this model be $\mathfrak{A}$. On the one hand, since $\mathfrak{A} \models T$, it must be the case that $A$ is a non bipartite graph, thus it contains at least one odd-length cycle. On the other, since $\mathfrak{A} \models A_n$ for all $n \in \mathbf{N}$, it must be the case that no odd-length cycle is contained in $\mathfrak{A}$. Therefore, $\mathfrak{A}$ cannot exist. Thus, our hypothesis that $T$ exists is contradictory.
+	
+	
+\end{proof}
+
+
+\end{document}
