@@ -94,42 +94,30 @@
 	
 \end{proof}
 
-\begin{exercise}{1.9}
-	Consider the class of undirected graphs with no self-loop.
-
-	A graph is \textbf{acyclic} if, for each $n \ge 3$ it does not contain distinct vertices $x_1, \dots, x_n$ such that $x_i$ is adjacent to $x_{i+1}$ for each $1 \le i < n$ and $x_n$ is adjacent to $x_1$. Prove that the property of being an acyclic graph is
-	not finitely axiomatizable in the first-order language of graphs.
-	
-	(Hint: Use Compactness).
+\begin{exercise}{1.5}
+	Prove the following: If a property $P$ and its complement are axiomatizable then $P$ is finitely axiomatizable.
 \end{exercise}
+
 \begin{proof}
-	We argue by way of contradiction. We suppose that the property of being acyclic is finitely axiomatizable, and that $T$ is a sentence that axiomatizes it. By definition, this means that, for any structure $\mathfrak{A}$, the following holds:
+	Assume that $P$ is axiomatized by a set of sentences $U$, and that $\lnot P$ is axiomatized by a set of sentences $V$. Formally:
 	
 	\[
-		\mathfrak{A} \models T \iff \mathfrak{A} \text{ is acyclic}.
+		\mathfrak{U} \models U \iff \mathfrak{U} \text{ has the property } P
+	\]
+	and
+	\[
+		\mathfrak{V} \models V \iff \mathfrak{V} \text{ has the property } \lnot P.
 	\]
 	
-	Let's consider now the set of sentences expressing the fact that it doesn't exist a cycle of length $n$. Such a sentence is easily expressible in first-order logic with equality:
+	Now, if we consider the set of sentences $U \cup V$, that is both the sentences that axiomatize $P$ and the ones that axiomatize $\lnot P$, these don't have a model.
+	
+	Therefore, according to the Compactness Theorem, it exists a finite subset $W \subseteq U_0 \cup V_0$ such that $W$ has no model. Let's assume that $W$ is made by a subset of sentences from $U$, say $U_0 = \{u_0, \dots, u_p\}$, and a set of sentences from $V$, say $V_0 = \{v_0, \dots, v_q\}$:
 	
 	\[
-		A_n := \lnot 
-		(
-			\exists x_1 \dots \exists x_n
-			(
-				(\bigwedge_{1 \le i \le j \le n} x_i \ne x_j) \ \land \ (\bigwedge_{1 \le i \le n} E(x_i, x_{i + 1})) \ \land \  (E(x_1, x_{n}))
-			)
-		)
+		W = U_0 \cup V_0 = \{u_0, \dots, u_p, v_0, \dots, v_q\}.
 	\]
-	Let's now recall the following proposition from handout 14:
-		
-	\begin{theorem}[Handout 14]
-		The Compactness Theorem is equivalent to the following double implication:
-		\[
-			T \models E \text{ if and only if for some finite } T_0 \subseteq T \text{ we have } T_0 \models E
-		\]
-	\end{theorem}
 	
-	Now, it's trivially true that $\{ A_n : n \ge 3 \} \models T$. Therefore, for proposition 1.2, we know that it exists a finite subset $T_0 \subseteq \{ A_n : n \ge 3 \}$ such that $T_0 \models T$. This is an absurd: let's assume $T_0 = A_{n_1}, \dots, A_{n_q}$. We can always consider a structure $\mathfrak{A}$ such that it doesn't contain any cycle of length $n_{n_1}, \dots, n_{n_q}$, and that simultaneously contains a cycle of length $k = \max \{n_{n_1}, \dots, n_{n_q}\} + 1$. Therefore, we can conclude that the property of being acyclic is not finitely axiomatizable.
+	Let's call the model for $U_0$ and $V_0$ respectively $\mathfrak{U}_0$ and $\mathfrak{V}_0$. We know that the models $\mathfrak{U}_0$ and $\mathfrak{V}_0$ are disjoint, that $\mathfrak{U} \subseteq \mathfrak{U_0}$ and that $\mathfrak{V} \subseteq \mathfrak{V_0}$. Moreover, $\mathfrak{U}_0 \cup \mathfrak{V}_0$ is the class of all models, and this means that $\mathfrak{U} = \mathfrak{U}_0$. We can therefore conclude that that $P$ is finitely axiomatizable (i.e., by the sentences in $U_0$).
 	
 \end{proof}
 
@@ -138,6 +126,12 @@
 	Prove that $\omega$-consistency implies consistency.
 \end{exercise}
 \begin{proof}
-	\dots
+	Let's first recall the definitions of consistency and $\omega$-consistency:
+	\begin{itemize}
+		\item A theory $T$ is consistent if there is no formula $F$ such that $\vdash F$ and $\vdash \lnot F$. Equivalently, $T$ is consistent if $\vdash F$ for every formula $F$.
+		\item A theory $T$ is $\omega$-consistent if there is no formula $A(x)$ such that for each $n \in \mathbf{N}$ we have both $T \vdash A(n)$ and $T \vdash \lnot (\forall x) A(x)$.
+	\end{itemize}
+	
+	To prove that $\omega$-consistency implies consistency, let's consider an $\omega$-consistent theory $T$ and the formula $A(x): x = x$. Let's now proceed by contradiction: let's assume that $T$ is not consistent. By definition, since $T$ is not consistent we have that $\vdash \exists \, x\,  A(x)$, since all formulas are true. But this can not be the case, since $T$ is $\omega$-consistent, and therefore it can't be the case that $T \vdash \lnot (\forall x) A(x)$. Contradiction.
 \end{proof}
 \end{document}
