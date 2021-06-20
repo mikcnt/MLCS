@@ -9,6 +9,7 @@
 \usepackage{amssymb}
 \usepackage{enumerate}
 \usepackage{float}
+\usepackage{pdfpages}
 \usepackage[english]{babel}
 \usetikzlibrary{arrows, automata, calc, positioning}
 \geometry{margin=2cm}
@@ -117,7 +118,7 @@
 		W = U_0 \cup V_0 = \{u_0, \dots, u_p, v_0, \dots, v_q\}.
 	\]
 	
-	We can in fact rule out all other possibilities, which basically consist in the fact that either $U_0$ or $V_0$ are empty. For example, if $V_0 = \emptyset$, then we would have that $W = U_0$ has no model. But this can not be the case, since we know by hypothesis that $U$ has a model, and that therefore (Compactness Theorem) that every finite subset (including $U_0$) has also a model. The same reasoning can be applied to exclude the possibility that $U_0 = \emptyset$.
+	We can in fact rule out all other possibilities, which basically consist in the fact that either $U_0$ or $V_0$ are empty. For example, if $V_0 = \emptyset$, then we would have that $W = U_0$ has no model. But this can not be the case, since we know by hypothesis that $U$ has a model, and that therefore (Compactness Theorem) every finite subset (including $U_0$) has also a model. The same reasoning can be applied to exclude the possibility that $U_0 = \emptyset$.
 	
 	Now, for the compactness theorem, since $U$ has a model, every finite subset of $U$ should have a model too, including $U_0$. By the same reasoning, $V_0$ should have a model too. Let this models be respectively $\mathfrak{U}_0$ and $\mathfrak{V}_0$.
 	
@@ -125,12 +126,20 @@
 	
 	\begin{itemize}
 		\item Given two set of sentences $A$ and $B$ and their respective models $\mathfrak{A}$ and $\mathfrak{B}$, we can define the union between the two models $\mathfrak{A} \cup \mathfrak{B}$ as the class of structures that either satisfy $A$ or $B$.
-		\item Given two set of sentences $A$ and $B$ and their respective models $\mathfrak{A}$ and $\mathfrak{B}$, we can define the union between the two models $\mathfrak{A} \cup \mathfrak{B}$ as the class of structures that both satisfy $A$ and $B$.
+		\item Given two set of sentences $A$ and $B$ and their respective models $\mathfrak{A}$ and $\mathfrak{B}$, we can define the intersection between the two models $\mathfrak{A} \cup \mathfrak{B}$ as the class of structures that both satisfy $A$ and $B$.
 	\end{itemize}
 	
 	Now we know that the models $\mathfrak{U}$ and $\mathfrak{V}$ are disjoint, since there is no structure that both satisfy $P$ and $\lnot P$. Same goes for $\mathfrak{U}_0$ and $\mathfrak{V}_0$. Moreover, we know that $\mathfrak{U} \subseteq \mathfrak{U_0}$ and that $\mathfrak{V} \subseteq \mathfrak{V_0}$, since adding new sentences acts like the creation of new constraints, and therefore decreases the size of the space of the represented structures.
 	
 	Finally, $\mathfrak{U} \cup \mathfrak{V}$ is the class of all models, since a structure either satisfy $P$ or $\lnot P$, and therefore either belongs to $\mathfrak{U}$ or $\mathfrak{V}$. Knowing that $\mathfrak{U} \subseteq \mathfrak{U}_0$ and $\mathfrak{V} \subseteq \mathfrak{V}_0$, we can deduce that $\mathfrak{U} = \mathfrak{U}_0$, and thus that $P$ is finitely axiomatizable (i.e., by the sentences in $U_0$).
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.6\textwidth]{structures.pdf}
+		\caption{We can see in the figure that the two models $\mathfrak{U}$ and $\mathfrak{V}$ must be disjoint, and that their union must be the class of all structures.}
+		\label{fig:structures}
+	\end{figure}
+	
 	
 \end{proof}
 
