@@ -111,13 +111,26 @@
 	
 	Now, if we consider the set of sentences $U \cup V$, that is both the sentences that axiomatize $P$ and the ones that axiomatize $\lnot P$, these don't have a model.
 	
-	Therefore, according to the Compactness Theorem, it exists a finite subset $W \subseteq U_0 \cup V_0$ such that $W$ has no model. Let's assume that $W$ is made by a subset of sentences from $U$, say $U_0 = \{u_0, \dots, u_p\}$, and a set of sentences from $V$, say $V_0 = \{v_0, \dots, v_q\}$:
+	Therefore, according to the Compactness Theorem, there exists a finite subset $W \subseteq U \cup V$ such that $W$ has no model. We can now assume that $W$ is made by a subset of sentences from $U$, say $U_0 = \{u_0, \dots, u_p\}$, and a set of sentences from $V$, say $V_0 = \{v_0, \dots, v_q\}$:
 	
 	\[
 		W = U_0 \cup V_0 = \{u_0, \dots, u_p, v_0, \dots, v_q\}.
 	\]
 	
-	Let's call the model for $U_0$ and $V_0$ respectively $\mathfrak{U}_0$ and $\mathfrak{V}_0$. We know that the models $\mathfrak{U}_0$ and $\mathfrak{V}_0$ are disjoint, that $\mathfrak{U} \subseteq \mathfrak{U_0}$ and that $\mathfrak{V} \subseteq \mathfrak{V_0}$. Moreover, $\mathfrak{U}_0 \cup \mathfrak{V}_0$ is the class of all models, and this means that $\mathfrak{U} = \mathfrak{U}_0$. We can therefore conclude that that $P$ is finitely axiomatizable (i.e., by the sentences in $U_0$).
+	We can in fact rule out all other possibilities, which basically consist in the fact that either $U_0$ or $V_0$ are empty. For example, if $V_0 = \emptyset$, then we would have that $W = U_0$ has no model. But this can not be the case, since we know by hypothesis that $U$ has a model, and that therefore (Compactness Theorem) that every finite subset (including $U_0$) has also a model. The same reasoning can be applied to exclude the possibility that $U_0 = \emptyset$.
+	
+	Now, for the compactness theorem, since $U$ has a model, every finite subset of $U$ should have a model too, including $U_0$. By the same reasoning, $V_0$ should have a model too. Let this models be respectively $\mathfrak{U}_0$ and $\mathfrak{V}_0$.
+	
+	\textbf{Notation detail}: When we write that a set of sentences $A$ has a model $\mathfrak{A}$, we mean that $\mathfrak{A}$ is the class of structures that satisfy the sentences $A$. This way, we can refer to the union and intersection of two models in the following way:
+	
+	\begin{itemize}
+		\item Given two set of sentences $A$ and $B$ and their respective models $\mathfrak{A}$ and $\mathfrak{B}$, we can define the union between the two models $\mathfrak{A} \cup \mathfrak{B}$ as the class of structures that either satisfy $A$ or $B$.
+		\item Given two set of sentences $A$ and $B$ and their respective models $\mathfrak{A}$ and $\mathfrak{B}$, we can define the union between the two models $\mathfrak{A} \cup \mathfrak{B}$ as the class of structures that both satisfy $A$ and $B$.
+	\end{itemize}
+	
+	Now we know that the models $\mathfrak{U}$ and $\mathfrak{V}$ are disjoint, since there is no structure that both satisfy $P$ and $\lnot P$. Same goes for $\mathfrak{U}_0$ and $\mathfrak{V}_0$. Moreover, we know that $\mathfrak{U} \subseteq \mathfrak{U_0}$ and that $\mathfrak{V} \subseteq \mathfrak{V_0}$, since adding new sentences acts like the creation of new constraints, and therefore decreases the size of the space of the represented structures.
+	
+	Finally, $\mathfrak{U} \cup \mathfrak{V}$ is the class of all models, since a structure either satisfy $P$ or $\lnot P$, and therefore either belongs to $\mathfrak{U}$ or $\mathfrak{V}$. Knowing that $\mathfrak{U} \subseteq \mathfrak{U}_0$ and $\mathfrak{V} \subseteq \mathfrak{V}_0$, we can deduce that $\mathfrak{U} = \mathfrak{U}_0$, and thus that $P$ is finitely axiomatizable (i.e., by the sentences in $U_0$).
 	
 \end{proof}
 
